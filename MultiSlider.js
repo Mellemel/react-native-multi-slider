@@ -339,9 +339,9 @@ export default class MultiSlider extends React.Component {
       borderRadius: borderRadius || 0,
     };
 
-    const markerContainerOne = { top: markerOffsetY - 24, left : trackOneLength + markerOffsetX - 24 }
+    const markerContainerOne = { top: markerOffsetY - 10, left : trackOneLength + markerOffsetX - 24 }
 
-    const markerContainerTwo = { top: markerOffsetY - 24, right: trackThreeLength + markerOffsetX - 24 };
+    const markerContainerTwo = { top: markerOffsetY - 10, right: trackThreeLength + markerOffsetX - 24 };
 
     return (
       <View style={[styles.container, this.props.containerStyle]}>
@@ -404,7 +404,7 @@ export default class MultiSlider extends React.Component {
                 pressed={this.state.twoPressed}
                 markerStyle={this.props.markerStyle}
                 pressedMarkerStyle={this.props.pressedMarkerStyle}
-                currentValue={this.state.valueTwo}
+                currentValue={this.state.valueTwo >= this.props.max ? this.props.max + '+' : this.state.valueTwo}
                 enabled={this.props.enabledTwo}
               />
             </View>

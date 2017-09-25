@@ -11,21 +11,22 @@ export default class DefaultMarker extends React.Component {
     pressedMarkerStyle: ViewPropTypes.style,
     markerStyle: ViewPropTypes.style,
     enabled: PropTypes.bool,
-    currentValue: PropTypes.number
   };
 
   render() {
     return (
       <TouchableHighlight>
-        <View
-          style={this.props.enabled ? [
-            styles.markerStyle,
-            this.props.markerStyle,
-            this.props.pressed && styles.pressedMarkerStyle,
-            this.props.pressed && this.props.pressedMarkerStyle,
-          ] : [styles.markerStyle, styles.disabled]}
-        />
-        <Text>{this.props.currentValue}</Text>
+        <View>
+          <View
+            style={this.props.enabled ? [
+              styles.markerStyle,
+              this.props.markerStyle,
+              this.props.pressed && styles.pressedMarkerStyle,
+              this.props.pressed && this.props.pressedMarkerStyle,
+            ] : [styles.markerStyle, styles.disabled]}
+          />
+          <Text style={{fontSize: 16}}>{this.props.currentValue}</Text>
+        </View>
       </TouchableHighlight>
     );
   }
