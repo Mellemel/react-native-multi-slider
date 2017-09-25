@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { View, StyleSheet, Platform, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, Platform, TouchableHighlight, Text } from 'react-native';
 
 const ViewPropTypes = require('react-native').ViewPropTypes || View.propTypes;
 
@@ -11,6 +11,7 @@ export default class DefaultMarker extends React.Component {
     pressedMarkerStyle: ViewPropTypes.style,
     markerStyle: ViewPropTypes.style,
     enabled: PropTypes.bool,
+    currentValue: PropTypes.number
   };
 
   render() {
@@ -24,6 +25,7 @@ export default class DefaultMarker extends React.Component {
             this.props.pressed && this.props.pressedMarkerStyle,
           ] : [styles.markerStyle, styles.disabled]}
         />
+        <Text>{this.props.currentValue}</Text>
       </TouchableHighlight>
     );
   }
